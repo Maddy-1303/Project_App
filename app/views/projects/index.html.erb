@@ -1,6 +1,13 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Projects</h1>
+<div class="Polaris-LegacyCard">
+  <div class="Polaris-LegacyCard__Header">
+    <h2 class="Polaris-Text--root Polaris-Text--headingMd Polaris-Text--semibold">
+      <p class="Polaris-Text--root Polaris-Text--heading2xl Polaris-Text--semibold">
+        Projects
+      </p>
+    </h2>
+  </div>
+</div>
 
 <%= turbo_stream_from "projects" %>
 
@@ -18,3 +25,4 @@
 
   <% end %>
 <% end %>
+

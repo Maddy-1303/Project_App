@@ -1,4 +1,12 @@
-<%= turbo_frame_tag dom_id(project) do %>
+<div class="Polaris-LegacyCard">
+  <div class="Polaris-CalloutCard__Container">
+    <div class="Polaris-LegacyCard__Section">
+      <div class="Polaris-CalloutCard">
+        <div class="Polaris-CalloutCard__Content">
+          <div class="Polaris-CalloutCard__Title">
+            <h2 class="Polaris-Text--root Polaris-Text--headingMd Polaris-Text--semibold">
+
+            <%= turbo_frame_tag dom_id(project) do %>
   <p>
     <strong>Content:</strong>
     <%= project.content %>
@@ -8,16 +16,15 @@
     <strong>Like:</strong>
     <%= project.like %>
   </p>
-
-  <% if current_user.admin? %>
-  <p>
-    <strong>User:</strong>
-    <%= project.user.email %>
-  </p>
-    <% end %>
-
-  <%= link_to "Edit" , edit_project_path(project) %>
-  <%= link_to "Show" , project_path(project) %>
-  <%= button_to "Destroy this project", project, method: :delete %>
+                <%= link_to "Edit", edit_project_path(project), class: "Polaris-Button Polaris-Button--primary" %>
+                 <%= link_to "Show" , project_path(project),  class: "Polaris-Button Polaris-Button--primary" %>
+                 <%= button_to "Destroy this project", project, method: :delete %>
 
 <% end %>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

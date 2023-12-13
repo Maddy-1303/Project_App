@@ -1,24 +1,52 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>ProjectApp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html style="<%= polaris_html_styles %>">
+<head>
+  <title>ProjectApp</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "polaris_view_components" %>
+  <%= javascript_importmap_tags %>
 
-    <% if user_signed_in? %>
-      <div> Welcome <%= current_user.email %> </div>
-      <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= button_to "Sign in", new_user_session_path %>
-    <% end %>
-  </head>
+  <% if user_signed_in? %>
+    <div class="Polaris-Banner Polaris-Banner--statusSuccess Polaris-Banner--withinPage">
+      <div class="Polaris-Banner__ContentWrapper">
+        <div class="Polaris-Banner__Content">
+            <span role="img" aria-label="Farrah" class="Polaris-Avatar Polaris-Avatar--sizeMedium Polaris-Avatar--shapeRound" style="background-color: #008C00;">
+              <img src="https://www.redditstatic.com/desktop2x/img/favicon/apple-icon-180x180.png" class="Polaris-Avatar__Image" role="presentation" onerror="this.src=''" />
+            </span>
+          <div class="Polaris-Text--root Polaris-Text--subdued Polaris-Text--block" style="margin-left: 8px;">
+            Welcome <%= current_user.email %>
+          </div>
+        </div>
+        <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "Polaris-Banner__DismissButton" %>
+      </div>
+    </div>
+  <% else %>
+    <div class="Polaris-Banner Polaris-Banner--statusCritical Polaris-Banner--withinPage">
+      <div class="Polaris-Banner__ContentWrapper">
+        <h2 class="Polaris-Text--root Polaris-Text--headingMd Polaris-Text--semibold Polaris-Text--break">
+          Sign Up to Continue
+        </h2>
+        <div class="Polaris-Box">
+          <div class="Polaris-Box">
+            <div class="Polaris-ButtonGroup">
+              <div class="Polaris-ButtonGroup__Item">
+                <div class="Polaris-Box">
+                  <%= button_to "Sign in", new_user_session_path, class: "Polaris-Button" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</head>
 
-  <body>
-
-  <%= yield %>
-  </body>
+<body style="<%= polaris_body_styles %>">
+<%= yield %>
+</body>
 </html>

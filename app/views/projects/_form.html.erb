@@ -1,3 +1,11 @@
+<div class="Polaris-LegacyCard">
+  <div class="Polaris-CalloutCard__Container">
+    <div class="Polaris-LegacyCard__Section">
+      <div class="Polaris-CalloutCard">
+        <div class="Polaris-CalloutCard__Content">
+          <div class="Polaris-CalloutCard__Title">
+            <h2 class="Polaris-Text--root Polaris-Text--headingMd Polaris-Text--semibold">
+
 <%= form_with(model: project,id: dom_id(project)) do |form| %>
   <% if project.errors.any? %>
     <div style="color: red">
@@ -24,4 +32,13 @@
   <div>
     <%= form.submit %>
   </div>
-<% end %>
+                <img class="Polaris-CalloutCard__Image" src="https://cdn.shopify.com/s/assets/admin/checkout/settings-customizecart-705f57c725ac05be5a34ec20c05b94298cb8afd10aac7bd9c7ad02030f48cfa0.svg" alt="">
+
+            <% end %>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
