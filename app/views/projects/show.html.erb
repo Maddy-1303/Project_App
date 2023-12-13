@@ -1,0 +1,16 @@
+<%= turbo_frame_tag dom_id(@project) do %>
+  <h1>Project</h1>
+  <p>
+    <strong>Content:</strong>
+    <%= @project.content %>
+  </p>
+
+  <p>
+    <strong>Like:</strong>
+    <%= @project.like %>
+  </p>
+
+  <%= link_to "Edit" , edit_project_path(@project) %>
+  <%= button_to "Destroy this project", @project, method: :delete %>
+<% end %>
+
