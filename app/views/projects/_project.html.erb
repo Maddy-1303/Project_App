@@ -9,6 +9,13 @@
     <%= project.like %>
   </p>
 
+  <% if current_user.admin? %>
+  <p>
+    <strong>User:</strong>
+    <%= project.user.email %>
+  </p>
+    <% end %>
+
   <%= link_to "Edit" , edit_project_path(project) %>
   <%= link_to "Show" , project_path(project) %>
   <%= button_to "Destroy this project", project, method: :delete %>

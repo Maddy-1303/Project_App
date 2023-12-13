@@ -5,9 +5,16 @@
 <%= turbo_stream_from "projects" %>
 
 <%= turbo_frame_tag "projects" do %>
-<%= render "form", project: @project %>
-  <% end %>
+  <%= render "form", project: @project %>
+<% end %>
 
-<%= turbo_frame_tag "projects" do %>
+<% if current_user.admin? %>
+  <%= turbo_frame_tag "projects" do %>
     <%= render @projects %>
+  <% end %>
+<% else %>
+  <%= turbo_frame_tag "projects" do %>
+    <%= render @projects %>
+
+  <% end %>
 <% end %>
